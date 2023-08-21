@@ -1,0 +1,181 @@
+body {
+  background-image: url(../../images/fon.jpg);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100vw;
+  height: 100vh;
+}
+
+.header {
+  padding: 20px 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header__logo-img {
+  width: 70px;
+  height: 70px;
+}
+
+.header__logo {
+  text-decoration: none;
+}
+
+.header__btn-one,
+.header__btn-two {
+  font-size: 16px;
+  display: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+.no-cards-text {
+  display: none;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 150px;
+}
+/* Модальне вікно входу */
+
+.btn-login {
+  margin-bottom: 10px;
+}
+
+.modal__content {
+  font-size: 12px;
+}
+
+.modal__form-input {
+  margin-bottom: 15px;
+}
+
+/* Модальное окно создания визита */
+.popup {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  top: 0;
+  left: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.8s ease 0s;
+}
+
+.popup__body {
+  min-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 10px;
+}
+.popup__content {
+  background-color: white;
+  color: black;
+  max-width: 800px;
+  padding: 30px;
+  position: relative;
+  transition: all 0.8s ease 0s;
+  opacity: 0;
+  transform: perspective(600px) translate(0px, -100%) rotateX(45deg);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.popup__close {
+  position: absolute;
+  color: black;
+  text-decoration: none;
+  right: 10px;
+  top: 10px;
+}
+
+.popup.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.filter_cards {
+  display: none;
+}
+
+.filter_cards_show {
+  display: block;
+}
+.popup.open .popup__content {
+  transform: perspective(600px) translate(0px, 0%) rotateX(0deg);
+
+  opacity: 1;
+}
+
+.popup__area {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.popup__buttons--flex-block {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.popup__container {
+  display: flex;
+  gap: 20px;
+}
+
+.popup__select--flex-block-1 {
+  display: flex;
+  flex-direction: column;
+}
+
+.select-1 {
+  margin-bottom: 1rem;
+}
+.hidden {
+  display: none;
+}
+.hidden-info {
+  display: block;
+}
+
+.filter {
+  display: flex;
+  gap: 50px;
+}
+
+.filter__input {
+  display: flex;
+}
+.input_filter {
+  width: 169px;
+}
+
+.section__filter {
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.hide {
+  display: none;
+}
+
+.status__hide {
+  display: none;
+}
+
+/* Секція для фільтрів */
+
+.filter-for-cards {
+  padding: 30px 0;
+}

@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Step Project Cards</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./src/css/style.css" />
+  </head>
+  <body>
+    <section class="container">
+      <header class="container-fluid header">
+        <a href="#" class="header__logo">
+          <img
+            src="./images/medical-logo-png-5.png"
+            alt="logo"
+            class="header__logo-img"
+          />
+        </a>
+        <div class="header__buttons">
+          <!-- Кнопка-триггер модального вікна -->
+
+          <a href="#popup-login" class="popup-link" onclick=""
+            ><button
+              type="button"
+              class="btn btn-outline-primary header__btn-one"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Login
+            </button></a
+          >
+          <!-- CREATE Modal -->
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content modal__content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="exampleModalLabel">
+                    Enter your email and password
+                  </h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Закрыть"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form id="enterForm">
+                    <div class="mb-3">
+                      <label for="exampleFormControlInput1" class="form-label"
+                        >Email</label
+                      >
+                      <input
+                        type="email"
+                        class="form-control req"
+                        id="exampleFormControlInput1"
+                        placeholder="name@example.com"
+                        name="email"
+                        value=""
+                        autocomplete="on"
+                        required
+                      />
+                    </div>
+                    <label for="inputPassword5" class="form-label"
+                      >Password</label
+                    >
+                    <input
+                      type="password"
+                      id="inputPassword5"
+                      class="form-control user-password req modal__form-input"
+                      aria-labelledby="passwordHelpBlock"
+                      autocomplete="on"
+                      name="password"
+                      value=""
+                      required
+                    />
+
+                    <input
+                      class="btn btn-primary"
+                      type="submit"
+                      value="Enter"
+                      name="enter"
+                    />
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CREATE VIZIT BUTTON -->
+
+          <button
+            type="button"
+            id="buttonforModal"
+            class="btn btn-outline-success header__btn-two"
+          >
+            Create a visit
+          </button>
+          <!-- Create modal window -->
+          <div
+            class="modal fade"
+            id="modalForCards"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h1 class="modal-title fs-5" id="modalcreate">Your card</h1>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form id="newVisitForm">
+                    <div class="mb-2 col-12">
+                      <select
+                        id="doctor"
+                        class="form-select"
+                        aria-label="Status"
+                        name="doctor"
+                      >
+                        <option selected>Chose doctor</option>
+                        <option id="Cardiologist" value="Cardiologist">
+                          Cardiologist
+                        </option>
+                        <option id="Dentist" value="Dentist">Dentist</option>
+                        <option id="Therapist" value="Therapist">
+                          Therapist
+                        </option>
+                      </select>
+                    </div>
+
+                    <div class="row hidden" id="forAllDoctors">
+                      <div class="col-md-6 col-sm-12">
+                        <div class="mb-2 form-floating">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="purpose"
+                            name="purpose"
+                            value=""
+                            placeholder="Purpose of the visit"
+                            required
+                          />
+                          <label for="visitsPurpose" class="form-label"
+                            >Purpose of the visit</label
+                          >
+                          <div class="invalid-feedback">Can't be empty!</div>
+                        </div>
+                        <div class="mb-2">
+                          <select
+                            id="urgency"
+                            class="form-select"
+                            required
+                            aria-label="Urgency"
+                            name="urgency"
+                          >
+                            <option value="" selected disabled>Urgency</option>
+                            <option id="high" value="high">High</option>
+                            <option id="middle" value="middle">Middle</option>
+                            <option id="low" value="low">Low</option>
+                          </select>
+                          <div class="invalid-feedback">Choose one</div>
+                        </div>
+                      </div>
+                      <div class="col-md-6 col-sm-12">
+                        <div class="mb-2 form-floating">
+                          <textarea
+                            class="form-control"
+                            id="short_desc"
+                            required
+                            name="short_desc"
+                            placeholder="Short description of the visit"
+                            style="height: 104px"
+                          ></textarea>
+                          <label for="shortDescription" class="form-label"
+                            >Short description of the visit</label
+                          >
+                          <div class="invalid-feedback">Can't be empty!</div>
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <div class="mb-2 form-floating">
+                          <input
+                            type="text"
+                            class="form-control"
+                            id="name"
+                            name="name"
+                            placeholder="Name and Surname"
+                            required
+                          />
+                          <label for="userName" class="form-label"
+                            >Name and Surname</label
+                          >
+                          <div class="invalid-feedback">
+                            Please enter your name!
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="row" id="additional"></div>
+                    <div class="modal-footer">
+                      <button
+                        type="button"
+                        class="btn btn-secondary"
+                        data-bs-dismiss="modal"
+                      >
+                        Cancel
+                      </button>
+                      <button
+                        type="button"
+                        id="submit-changes-btn"
+                        class="btn btn-primary ms-3 hidden"
+                      >
+                        Change
+                      </button>
+                      <button
+                        type="submit"
+                        id="create-btn"
+                        class="btn btn-primary ms-3 hidden"
+                      >
+                        Create new visit
+                      </button>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+      <main>
+        <section class="container-fluid filter-for-cards">
+          <section
+            class="section__filter d-flex flex-wrap flex-sm-nowrap flex-md-nowrap flex-lg-nowrap flex-xl-nowrap"
+          >
+            <div
+              class="filter d-flex flex-wrap flex-sm-nowrap flex-md-nowrap flex-lg-nowrap flex-xl-nowrap"
+            >
+              <select
+                class="form-select rtn"
+                aria-label="Default select example"
+              >
+                <option selected>Urgency/All Cards</option>
+                <option value="high">High</option>
+                <option value="middle">Middle</option>
+                <option value="low">Low</option>
+              </select>
+              <div class="filter__input">
+                <input
+                  type="text"
+                  class="form-control input_filter"
+                  placeholder="Title"
+                  aria-label="Username"
+                  aria-describedby="basic-addon1"
+                />
+                <button
+                  type="button"
+                  class="btn btn-outline-success btn_filter"
+                >
+                  Search
+                </button>
+              </div>
+              <select
+                class="form-select filter_status"
+                aria-label="Default select example"
+              >
+                <option selected>Status</option>
+                <option value="Open">Open</option>
+                <option value="Done">Done</option>
+              </select>
+            </div>
+            <span class="hide">No items have been funded</span>
+          </section>
+          <span class="no-cards-text">No items have been added</span>
+          <div
+            class="row cards-place d-flex flex-wrap main-section overflow-auto"
+          ></div>
+          <div
+            class="row cards-place d-flex flex-wrap main-section overflow-auto"
+          ></div>
+        </section>
+      </main>
+    </section>
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+      integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"
+      integrity="sha384-fbbOQedDUMZZ5KreZpsbe1LCZPVmfTnH7ois6mU1QK+m14rQ1l2bGBq41eYeM/fS"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./src/scripts/jquery.js"></script>
+    <script type="module" src="./src/scripts/main.js"></script>
+    <script type="module" src="./src/scripts/functions.js"></script>
+    <script type="module" src="./src/scripts/classes.js"></script>
+  </body>
+</html>
